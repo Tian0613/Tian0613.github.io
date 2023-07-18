@@ -75,9 +75,9 @@
         <div class="nav-menu">
           
             
-              <a class="nav-menu-item" href="/page1">子页一</a>
+              <a class="nav-menu-item" href="/technology">技术</a>
             
-              <a class="nav-menu-item" href="/page2">子页二</a>
+              <a class="nav-menu-item" href="/life">生活</a>
             
           
         </div>
@@ -117,7 +117,7 @@
   </div>
   <div class="about">
     <div class="about-photo"
-         style="background-image: url(/images/about.jpg)"></div>
+         style="background-image: url(/images/yan.jpg)"></div>
     <div class="about-text">
       <div class="about-title">
         <div class="matts">关</div><div class="matts">于</div>
@@ -126,25 +126,7 @@
         <div class="about-text-p">
           
             
-              酒入豪肠,七分酿成了月光
-              <br />
-            
-          
-            
-              <br />
-            
-          
-            
-              余下的三分啸成剑气
-              <br />
-            
-          
-            
-              <br />
-            
-          
-            
-              绣口一吐就半个盛唐
+              性别男，单身狗，山西人，XDU本科在读
               <br />
             
           
@@ -152,45 +134,6 @@
       </div>
     </div>
   </div>
-  
-    <div class="timeline">
-      <div class="timeline-head">
-        <div class="title">时间线</div>
-        <div class="radio-wrapper">
-          
-            <div class="radio">
-              <input id="radio-article"
-                     type="checkbox"
-                      />
-              <label class="radio-skin--article" for="radio-article"></label>
-            </div>
-          
-            <div class="radio">
-              <input id="radio-app"
-                     type="checkbox"
-                      />
-              <label class="radio-skin--app" for="radio-app"></label>
-            </div>
-          
-            <div class="radio">
-              <input id="radio-event"
-                     type="checkbox"
-                     checked />
-              <label class="radio-skin--event" for="radio-event"></label>
-            </div>
-          
-        </div>
-      </div>
-      <div class="timeline-body">
-        <div class="timeline-item-first">
-          <div class="line-anchor line-anchor--now"></div>
-        </div>
-        <div class="timeline-list" id="timeline-list"></div>
-        <div class="timeline-item-last">
-          <div class="line-anchor line-anchor--end"></div>
-        </div>
-      </div>
-    </div>
   
 
     </div>
@@ -215,12 +158,12 @@
               <div class="foot-item__body">
                 
                   <div class="text">
-                    <img alt="link" height="20px" width="20px" src="/images/logo-github.svg" />
+                    <img alt="link" height="20px" width="20px" src="/images/github.svg" />
                     <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/Tian0613">github</a>
                   </div>
                 
                   <div class="text">
-                    <img alt="link" height="20px" width="20px" src="/null" />
+                    <img alt="link" height="20px" width="20px" src="/images/qq.svg" />
                     <a class="foot-link" target="_blank" rel="noopener" href="https://qm.qq.com/cgi-bin/qm/qr?k=xwLYRIQtSuSOoie5nVEWLjD4WpML_ifw&noverify=0">QQ</a>
                   </div>
                 
@@ -380,60 +323,6 @@
 </script>
   
   
-  <script type="text/javascript">
-    const timelineData = {"types":["article","app","event"],"posts":[]}
-    const {types, posts} = timelineData
-    listEl = document.querySelector("#timeline-list");
-
-    elRefs = getElRefs(types)
-    bindListener(types, elRefs)
-
-    setTimeout(init.bind(this, types, elRefs))
-
-    function getElRefs(types) {
-      return types.map(type => document.querySelector(`#radio-${type}`))
-    }
-
-    function bindListener(names, els) {
-      names.map((name, i) => els[i].addEventListener('change', e => updateList(name, e.target.checked)))
-    }
-
-    function updateList(type, value) {
-      listDom
-        .filter(line => line.type === type)
-        .forEach(line => {
-          line.el.className = line
-            .el
-            .className
-            .replace(
-              /(--hidden)?$/, value
-              ? ""
-              : "--hidden");
-        });
-    }
-
-    const listDom = posts.map(t => getLine(t));
-    listEl.append(...listDom.map(i => i.el));
-
-    function getLine(data) {
-      const item = document.createElement("DIV");
-      item.className = `timeline-item-${data.type} timeline-item--hidden`;
-      item.innerHTML = `
-                          <div class="line-date">
-                          <div class="line-date-tag">${data.date}</div></div>
-                          <div class="line-anchor"></div>
-                          <div class="line-title">
-                              <img class="text-icon" src="${data.icon}"/><a class="timeline-post" href="${data.path}">${data.title}</a>
-                          </div>
-                          `;
-      return {el: item, type: data.type};
-    };
-
-    function init(names, els) {
-      names.map((name, i) => updateList(name, els[i].checked))
-    }
-  </script >
-
 
   </body>
 </html>
