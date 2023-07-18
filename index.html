@@ -37,17 +37,9 @@
       
   <style>
     @font-face {
-        font-family:sourceHanSerif;
+        font-family:LXGWWenKai;
         src: url(/font/regular.ttf);
         font-weight: regular;
-    }
-  </style>
-
-  <style>
-    @font-face {
-        font-family:sourceHanSerif;
-        src: url(/font/bold.ttf);
-        font-weight: bold;
     }
   </style>
 
@@ -74,7 +66,11 @@
         <input id="navBtn" type="checkbox" />
         <div class="nav-menu">
           
-            <a href='/blog/'>博客</a>
+            
+              <a class="nav-menu-item" href="/note">笔记</a>
+            
+              <a class="nav-menu-item" href="/thoughts">生活</a>
+            
           
         </div>
         <label class="nav-btn" for="navBtn"></label>
@@ -98,7 +94,7 @@
           <img alt="normal" width="300px" height="" src="/images/normal.svg" />
         </div>
         <canvas width="400" height="400" id="heart-curve"></canvas>
-        <div class="motto">人生需要Happy , 不必苦苦Study</div>
+        <div class="motto">人生需要Happy，不必苦苦Study</div>
         <div class="poem">
           
         </div>
@@ -355,7 +351,7 @@
   
   
   <script type="text/javascript">
-    const timelineData = {"types":["article","event"],"posts":[{"title":"刷机","path":"/post/post3/","icon":"/images/icon/icon-article.svg","type":"article","date":"2022-06-28"},{"title":"高考","path":"/post/post2/","icon":"/images/icon/icon-event.svg","type":"event","date":"2022-05-21"},{"title":"前言","path":"/post/post1/","icon":"/images/icon/icon-article.svg","type":"article","date":"2022-05-10"}]}
+    const timelineData = {"types":["article","event"],"posts":[{"title":"刷机","path":"/post/post3/","icon":"/images/icon/icon-article.svg","type":"article","date":"2022-06-28"},{"title":"高考","path":"/post/post2/","icon":"/images/icon/icon-article.svg","type":"article","date":"2022-05-21"},{"title":"前言","path":"/post/post1/","icon":"/images/icon/icon-event.svg","type":"event","date":"2022-05-10"}]}
     const {types, posts} = timelineData
     listEl = document.querySelector("#timeline-list");
 
