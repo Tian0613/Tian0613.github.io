@@ -6,7 +6,7 @@
   <link href="http://tianyu13.cn/atom.xml" rel="self"/>
   
   <link href="http://tianyu13.cn/"/>
-  <updated>2022-10-13T12:12:17.944Z</updated>
+  <updated>2023-07-18T10:18:23.534Z</updated>
   <id>http://tianyu13.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://tianyu13.cn/post/post3/"/>
     <id>http://tianyu13.cn/post/post3/</id>
     <published>2022-06-28T14:45:47.000Z</published>
-    <updated>2022-10-13T12:12:17.944Z</updated>
+    <updated>2023-07-18T10:18:23.534Z</updated>
     
     <content type="html"><![CDATA[<h2 id="安卓分区"><a href="#安卓分区" class="headerlink" title="安卓分区"></a>安卓分区</h2><ul><li>Boot</li><li>System</li><li>Data</li><li>Cache</li><li>Recovery</li><li>Radio</li><li>AB 分区（两套 boot, system）</li><li>VAB 分区</li></ul><h2 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h2><ul><li>云备份</li><li>本地备份</li><li>第三方备份</li></ul><h2 id="解BL锁"><a href="#解BL锁" class="headerlink" title="解BL锁"></a>解BL锁</h2><ul><li>bootloader</li></ul><h2 id="卡刷"><a href="#卡刷" class="headerlink" title="卡刷"></a>卡刷</h2><ul><li>第三方 rec，如橙狐、TWRP（线刷刷入）</li><li>刷入 ROM</li><li>刷入 Magisk</li></ul><h2 id="线刷"><a href="#线刷" class="headerlink" title="线刷"></a>线刷</h2><ul><li>fastboot </li><li>提取 boot.img ，Magisk 修补，刷入修补后的 boot.img</li></ul><h2 id="救砖"><a href="#救砖" class="headerlink" title="救砖"></a>救砖</h2><ul><li>删模块</li><li>fastboot 线刷</li><li>9008</li></ul><h2 id="fastboot常用命令"><a href="#fastboot常用命令" class="headerlink" title="fastboot常用命令"></a>fastboot常用命令</h2><ul><li><p>显示设备</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">fastboot devices<br></code></pre></td></tr></table></figure></li><li><p>重启手机</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">fastboot reboot （recovery/bootloader)<br></code></pre></td></tr></table></figure></li><li><p>刷写分区</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">fastboot flash 分区名 分区镜像<br></code></pre></td></tr></table></figure></li><li><p>擦除分区</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">fastboot erase 分区名<br></code></pre></td></tr></table></figure></li><li><p>刷入ROM</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">fastboot update 官方包<br></code></pre></td></tr></table></figure></li><li><p>引导启动镜像</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">fastboot boot 分区镜像<br></code></pre></td></tr></table></figure></li><li><p>设备上锁</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">fastboot flashing lock<br></code></pre></td></tr></table></figure></li><li><p>获取手机相关信息</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">fastboot getvar all<br></code></pre></td></tr></table></figure></li></ul><h2 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h2><ul><li>底包：卡刷第三方 ROM，实际上只是刷了 boot 和 system 两个分区（俗称内核和系统）。对于大多数手机来说，除了这两个分区，还包括基带、Modem、TrustZone 等必不可少的分区，这些分区的版本是需要和系统或内核里相关的驱动版本一致才可以正常工作。比方说，如果系统里的驱动更新了，而 TrustZone 没有更新，那么指纹传感器可能会不正常；Modem 版本不对，可能会没有网络。而每次都下载官方完整包十分麻烦，这就促使了底包的诞生，底包在保证体积的同时拥有和完整包相同的作用</li><li>双清（恢复出厂设置）：清除data和cache分区</li><li>四清：清除data、cache、system、dalvik cache分区</li><li>格式化 Data：清除一切数据</li><li>卡刷和线刷区别：线刷一般是手机生产厂商所采取的一种升级方式，针对智能手机系统问题或非硬件损坏的手机故障来刷写固件，替换和覆盖各个分区所有可能被修改或者损坏的文件，使手机功能恢复正常；卡刷就是用SD卡作为储存介质来存放ROM文件（手机操作系统文件），本质是对系统文件替换的过程，不会重新刷写整个分区，只是替换部分系统分区文件来实现对手机内软件版本升级或更换第三方操作系统。线刷包一般包含各个分区文件，相当于从底层把整个手机刷机，卡刷包一般只包含system和boot</li></ul><h2 id="常用网址"><a href="#常用网址" class="headerlink" title="常用网址"></a>常用网址</h2><h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><ul><li>Magisk <a href="https://github.com/topjohnwu/Magisk">https://github.com/topjohnwu/Magisk</a></li><li>SDK Platform Tools <a href="https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn">https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn</a></li><li>LSPosed <a href="https://github.com/LSPosed/LSPosed/releases">https://github.com/LSPosed/LSPosed/releases</a></li></ul><h3 id="REC"><a href="#REC" class="headerlink" title="REC"></a>REC</h3><ul><li>TWRP <a href="https://twrp.me/">https://twrp.me/</a></li><li>OrangeFox <a href="https://wiki.orangefox.tech/en/home">https://wiki.orangefox.tech/en/home</a></li></ul><h3 id="类原生"><a href="#类原生" class="headerlink" title="类原生"></a>类原生</h3><ul><li>PE <a href="https://download.pixelexperience.org/">https://download.pixelexperience.org/</a></li><li>dot <a href="https://www.droidontime.com/">https://www.droidontime.com/</a></li><li>Arrow <a href="https://arrowos.net/">https://arrowos.net/</a></li><li>Lineage <a href="https://lineageos.org/">https://lineageos.org/</a></li><li>crDroid <a href="https://crdroid.net/">https://crdroid.net/</a></li><li>Havoc <a href="https://havoc-os.com/">https://havoc-os.com/</a></li><li>魔趣 <a href="https://www.mokeedev.com/">https://www.mokeedev.com/</a></li></ul>]]></content>
     
@@ -38,7 +38,7 @@
     
     
     
-    <category term="笔记" scheme="http://tianyu13.cn/categories/%E7%AC%94%E8%AE%B0/"/>
+    <category term="note" scheme="http://tianyu13.cn/categories/note/"/>
     
     
     <category term="刷机" scheme="http://tianyu13.cn/tags/%E5%88%B7%E6%9C%BA/"/>
@@ -50,7 +50,7 @@
     <link href="http://tianyu13.cn/post/post2/"/>
     <id>http://tianyu13.cn/post/post2/</id>
     <published>2022-05-21T11:49:07.000Z</published>
-    <updated>2022-10-13T12:12:17.944Z</updated>
+    <updated>2023-07-18T10:19:26.670Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p><font color="#4F2F4F">有遗憾的感觉<br>为何感觉<br>那消失不见的素颜<br></font></p></blockquote><h2 id="高考"><a href="#高考" class="headerlink" title="高考"></a>高考</h2><p>又是一年高考季，自己高中毕业也快一年了，回想起高中点滴，每天起早贪黑，刷题测验，虽然辛苦，但目标明确——考一所好大学。高中生活还是很让人怀念的 (ﾉ∇︎〃 )。</p><h2 id="大学"><a href="#大学" class="headerlink" title="大学"></a>大学</h2><p>去年刚开学时，我还保留着高中对大学生活的那一份期待，学习动力很足，也愿意参加活动，但时间一久，我感受到的更多是迷茫。大学老师专业能力可能很强，但讲课能力真的一般，大多时候都是照着全年级通用的PPT讲一整节课，自己课下还得花很长时间翻看课本自学，还有各种赶DDL的作业。</p><p>我的学校是大类招生，说好听点是文理交叉，通俗点儿就是学得很杂。学得多但考试完就忘一大半，还有一些只是为了成绩而不得不上的没用的水课。甚至我一度怀疑现在学的东西是否真的有用 (||๐_๐)，也许是还没分专业，也许是我才大一。</p><p>不管怎样，时间会给出答案。虽然大学生活有不如意的地方，但也不乏小确幸。多些乐观，多些容忍，不忘<font color="#4F2F4F">“初心”</font>。</p><h2 id="一些照片"><a href="#一些照片" class="headerlink" title="一些照片"></a>一些照片</h2><p>::: cipher 564 我的高中班级<br><img src="/images/gsl.jpg" alt="哥斯拉"><br><img src="/images/yi.jpg" alt="签名"><br><img src="/images/hy2.jpg" alt="合影"><br><img src="/images/hy1.jpg" alt="合影"><br>:::</p>]]></content>
     
@@ -65,7 +65,7 @@
     
     
     
-    <category term="随想" scheme="http://tianyu13.cn/categories/%E9%9A%8F%E6%83%B3/"/>
+    <category term="life" scheme="http://tianyu13.cn/categories/life/"/>
     
     
     <category term="高考" scheme="http://tianyu13.cn/tags/%E9%AB%98%E8%80%83/"/>
