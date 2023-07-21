@@ -528,28 +528,28 @@ header .header__right .dropdown-menus .dropdown-menu {
 </ul>
 <h2 id="fastboot常用命令"><a href="#fastboot常用命令" class="headerlink" title="fastboot常用命令"></a>fastboot常用命令</h2><ul>
 <li><p>显示设备</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fastboot devices</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs plaintext">fastboot devices</code></pre>
 </li>
 <li><p>重启手机</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fastboot reboot （recovery/bootloader)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs plaintext">fastboot reboot （recovery/bootloader)</code></pre>
 </li>
 <li><p>刷写分区</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fastboot flash 分区名 分区镜像</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs plaintext">fastboot flash 分区名 分区镜像</code></pre>
 </li>
 <li><p>擦除分区</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fastboot erase 分区名</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs plaintext">fastboot erase 分区名</code></pre>
 </li>
 <li><p>刷入ROM</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fastboot update 官方包</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs plaintext">fastboot update 官方包</code></pre>
 </li>
 <li><p>引导启动镜像</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fastboot boot 分区镜像</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs plaintext">fastboot boot 分区镜像</code></pre>
 </li>
 <li><p>设备上锁</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fastboot flashing lock</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs plaintext">fastboot flashing lock</code></pre>
 </li>
 <li><p>获取手机相关信息</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fastboot getvar all</span><br></pre></td></tr></table></figure></li>
+<pre><code class="hljs plaintext">fastboot getvar all</code></pre></li>
 </ul>
 <h2 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h2><ul>
 <li>底包：卡刷第三方 ROM，实际上只是刷了 boot 和 system 两个分区（俗称内核和系统）。对于大多数手机来说，除了这两个分区，还包括基带、Modem、TrustZone 等必不可少的分区，这些分区的版本是需要和系统或内核里相关的驱动版本一致才可以正常工作。比方说，如果系统里的驱动更新了，而 TrustZone 没有更新，那么指纹传感器可能会不正常；Modem 版本不对，可能会没有网络。而每次都下载官方完整包十分麻烦，这就促使了底包的诞生，底包在保证体积的同时拥有和完整包相同的作用</li>
